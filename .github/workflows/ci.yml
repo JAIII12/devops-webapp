@@ -10,17 +10,17 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout Code
-      uses: actions/checkout@v3
+      - name: Checkout Code
+        uses: actions/checkout@v3
 
-    - name: Build Step
-      run: echo "Build successful"
+      - name: Build Step
+        run: echo "Build successful"
 
-    - name: Test Step
-      run: echo "Tests passed"
+      - name: Test Step
+        run: echo "Tests passed"
 
-        - name: Send Slack Notification
+      - name: Send Slack Notification
         run: |
-          curl -X POST -H 'Content-type: application/json' \
-          --data '{"text":"Build Successful 🚀"}' \
+          curl -X POST -H "Content-type: application/json" \
+          --data "{\"text\":\"Build Successful 🚀\"}" \
           ${{ secrets.SLACK_WEBHOOK }}
